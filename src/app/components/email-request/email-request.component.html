@@ -1,0 +1,11 @@
+<form [formGroup]="form">
+Enter Email Address
+<input type="email" formControlName="email" />
+<input type="submit" value="Send" (click)="sendToServer()">
+<div class="error" *ngIf="isSubmit && email?.hasError('required')">required fie;d</div>
+<div class="error" *ngIf="isSubmit && email?.hasError('email')">format is not valid</div>
+<div class="error">{{error}}</div>
+
+<h3 *ngIf="time.length">Received At</h3>
+<div *ngFor="let t of time">{{t| date: 'HH:mm:ss'}}</div>
+</form>
